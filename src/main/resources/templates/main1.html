@@ -1,0 +1,349 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/fonts/fonts.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
+    <style>
+        .authorization_button {
+            background: #B22222;
+            color: #E0FFFF;
+            border-color: #8B0000;
+            border-collapse: collapse;
+            text-align: center;
+            width: 120px;
+            /*background-position: right center;*/
+            cursor: pointer;
+           /* margin-left:auto;
+            margin-right:auto;*/
+            margin-top: 50px;
+        }
+        .authorization_button_text {
+
+            color: #E0FFFF;
+
+            /*background-position: right center;*/
+
+            /* margin-left:auto;
+             margin-right:auto;*/
+
+        }
+        /*.get-quote__button:hover{
+            background-position: right center;
+            cursor: pointer;
+        }*/
+        .drop-down_list {
+            background: #000000;
+            color: #E0FFFF;
+            border-color: #8B0000;
+            border-collapse: collapse;
+            /*text-align: center;*/
+            /* margin-left:auto;
+             margin-right:auto;*/
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<header class="menu"  id="menu">
+    <div class="wrapper">
+
+        <h1 class="logo">Retro<span>*</span></h1>
+        <nav class="header-nav">
+            <div class="hamburger-menu">
+                <input id="menu__toggle" type="checkbox">
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
+                <ul class="navigation menu__box" >
+                    <p class="menu__logo">Portfolio<span>*</span></p>
+                    <li><a class="active menu__item" href="#home">Главная</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="#services">Сервисы</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item"  href="#portfolio">Товары</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="#about">Наши сотрудники</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="#contact">Оцените нас</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="/buying">Каталог</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    </nav>
+    </div>
+
+</header>
+<main>
+    <!--<div>
+        <form action="/logout" method="post">
+           &lt;!&ndash; <input type="hidden" name=_csrf" value = "_csrf_token"/>&ndash;&gt;
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>-->
+    <section class="slider-block" id='home'>
+        <div class="wrapper">
+
+            <img class="slider-block_arrows left-arrow "src="static/images/left.png">
+            <div class="slider-content item-container" id='slides'>
+                <div class="slide slide_red item slide_active" id="slide-red">
+                    <img src="static/images/vertical_iphone.png" class="slider-block-iphones shadow vert-iphone  slide_red" onclick="clickOnVertPhone()">
+                    <img src="static/images/iPhone Vertical.png" class="slider-block-iphones shadow vert-iphone slide_red display-none" onclick="clickOnVertPhone()">
+                    <img src="static/images/horizontal_iphone.png" class="slider-block-iphones shadow horiz-iphone  slide_red" onclick="clickOnHorizPhone()">
+                    <img src="static/images/iPhone Horizontal.png" class="slider-block-iphones shadow horiz-iphone display-none slide_red" onclick="clickOnHorizPhone()">
+                </div>
+                <div class="slide item slide_blue" id="slide-blue">
+                    <img src="static/images/slide-2.png">
+                </div>
+            </div>
+            <img class="slider-block_arrows right-arrow" src="static/images/right.png">
+        </div>
+    </section>
+    <section class="services-block" id="services">
+        <div class ="wrapper">
+            <div>
+                <h2>Наши сервисы</h2>
+                <p>Наша команда с радостью найдет для вас лучший товар. </p>
+                <div class="services-container">
+                    <div class="grid-item">
+                        <img src="static/images/pen.png">
+                        <h3>Индивидуальный дизайн</h3>
+                        <p>Потрясающий дизайн с множеством приятных мелочей</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="static/images/bulb.png">
+                        <h3>Инновационные идеи</h3>
+                        <p>Мы постараемся найти то, что вам нужно</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="static/images/heart.png">
+                        <h3>Любовь - это ответ</h3>
+                        <p>Задушевное общение с потребителями </p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="static/images/phone.png">
+                        <h3>Адаптивный макет</h3>
+                        <p>Подходит для любого существующего устройства </p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="static/images/bubble.png">
+                        <h3>Круглосуточная поддержка</h3>
+                        <p>Постоянное общение с заказчиком </p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="static/images/star.png">
+                        <h3>Почувствуй себя звездой</h3>
+                        <p>Самое новое и лучшее для ваших клиентов </p>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+    </div>
+    <section class="portfolio" id="portfolio">
+        <div class="wrapper">
+            <div class="portfolio_content">
+                <h2 style="letter-spacing: 0.013px;">Наши товары</h2>
+                <p class="portfolio__text">Посмотрите, может вас что-то заинтересует</p>
+                <div class="portfolio__buttons" id="portfolio__buttons">
+                    <button class="button_active">All</button>
+                    <button>Camera</button>
+                    <button>PS</button>
+                    <button>Vinyl</button>
+                </div>
+                <div class="layout-4-column">
+                    <div class="portfolio__grid-container" id="portfolio_images">
+                        <img src="static/images/Camera3.png">
+                        <img src="static/images/GameBoy1.png">
+                        <img src="static/images/GameBoy2.png">
+                        <img src="static/images/Nintendo1.png">
+                        <img src="static/images/Nintendo2.png">
+                        <img src="static/images/Phone1.png">
+                        <img src="static/images/Recorder4.png">
+                        <img src="static/images/Recorder3.png">
+                        <img src="static/images/Recorder1.png">
+                        <img src="static/images/Smoke3.png">
+                        <img src="static/images/Vinul1.png">
+                        <img src="static/images/Vinyl2.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-us" id="about">
+        <div class="wrapper">
+            <div class="about-us_container">
+                <h2>О нас</h2>
+                <p class="about-us__text">Творческий коллектив </p>
+                <div class="layot-3-column">
+                    <div class="about-us__grid-container">
+                        <div class="person">
+                            <img src="static/images/vadim.jpg" alt="Vadim Visotsky">
+                            <h3 class="about-us__text_name">Вадим Высоцкий</h3>
+                            <p class="about-us__description" style="letter-spacing: -0.15px;">"Cogito ergo sum"</p>
+
+                        </div>
+                        <div class="social-media__icons">
+                            <a href="#"><img src="static/images/facebook.png"></a></li>
+                            <a href="#"><img src="static/images/google+.png"></a></li>
+                            <a href="#"><img src="static/images/twitter.png"></a></li>
+                            <a href="#"><img src="static/images/linkedin.png"></a></li>
+                        </div>
+                        <div class="person">
+                            <img src="static/images/danik.jpg" alt="Daniil Benko">
+                            <h3 class="about-us__text_name">Даниил Бенько</h3>
+                            <p class="about-us__description" style="letter-spacing: 0.12px;">Memento mori</p>
+                        </div>
+                        <div class="social-media__icons">
+                            <a href="#"><img src="static/images/facebook.png"></a></li>
+                            <a href="#"><img src="static/images/google+.png"></a></li>
+                            <a href="#"><img src="static/images/twitter.png"></a></li>
+                            <a href="#"><img src="static/images/linkedin.png"></a></li>
+                        </div>
+                        <div class="person">
+                            <img src="static/images/george.jpg" alt="Gorelik George">
+                            <h3 class="about-us__text_name" style="letter-spacing: 0.1px">Горелик Георгий</h3>
+                            <p class="about-us__description" style="letter-spacing: 0.07px;">In vino veritas</p>
+
+                        </div>
+                        <div class="social-media__icons">
+                            <a href="#"><img src="static/images/facebook.png"></a></li>
+                            <a href="#"><img src="static/images/google+.png"></a></li>
+                            <a href="#"><img src="static/images/twitter.png"></a></li>
+                            <a href="#"><img src="static/images/linkedin.png"></a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="get-quote" id="contact">
+        <div class="wrapper">
+            <div class="get-quote_content">
+                <h2>Оцените нас</h2>
+                <p class="get-quote__text" >Если хотите оценить приложение, можете сделать это здесь или свяжитесь с нами. </p>
+                <div class="get-quote_grid-container">
+                    <form action="#" method="post" th:action = "@{/ratePost}" th:object = "${suggestionsEntity}" class="get-quote__form" id="formm" >
+                        <input th:field="*{name}" type="text"  class="form__element"   placeholder="Имя (Обязательно)" id="name" required>
+                        <input th:field="*{email}" type="text"  class="form__element"  placeholder="Email (Обязательно)" id="email" required>
+                        <input th:field="*{phone}" type="text"  class="form__element"   placeholder="Контактный номер (Обязательно)" id="phone" required>
+                        <!--<input class="form__element" type="text" name="subject" placeholder="Suggestions" id="subject" required>-->
+                       <!-- action="#" method="post" th:action = "@{/rate}" th:object = "${suggestionsEntity}"-->
+                        <!--th:field="*{name}"
+                        th:field="*{email}"
+                        th:field="*{phone}"
+                        th:field = "*{rate}"-->
+                        <!--class="drop-down_list"-->
+                       <!-- name="name"
+                        name="email"
+                        name="tel"-->
+                        <p class="get-quote__list2">Rate</p>
+                        <select  th:field = "*{rate}">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <h2> </h2>
+
+
+                        <p><button type="submit" class="get-quote__button" id="btn">Принять</button> <button type="reset" class="get-quote__button" id="rst">Очистить</button></p>
+                        <p></p>
+                        <p class="authorization_button"><a th:href="@{/autorization}"  class="authorization_button_text" id="btnauth">Авторизация</a></p>
+
+                    </form>
+
+                    <div class="contact">
+                        <h3 class="contact_title">Контактная информация</h3>
+                        <ul class="list_contact">
+                            <li><img src="static/images/ico-location.png"><a class="icon_name_style">Elm St. 14/05 Lost City</a></li>
+                            <li><img src="static/images/ico-phone.png"></span><a href="tel:035283318635" class="icon_name_style">03528 331 86 35</a></li>
+                            <li><img src="static/images/ico-mail.png"></span><a href="mail:info@portfolio.com" class="icon_name_style">info@portfolio.com</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--<section class="about-us" id="signin">
+        <div class="wrapper">
+            <div class="get-quote_content">
+                <h2>Authorization</h2>
+                <p class="get-quote__text" >Create an account </p>
+                <div class="get-quote_grid-container">
+                    <form class="get-quote__form" method="post" id="form2">
+                        <input class="form__element" type="email" name="email" placeholder="Email (Required)" id="email2" required>
+                        <input class="form__element" type="password" name="password" placeholder="Password (Required)" id="password2" required>
+                        &lt;!&ndash;input class="form__element" type="text" name="subject" placeholder="Reason" id="subject">&ndash;&gt;
+                        &lt;!&ndash;textarea class="form__textarea" name="description" id="description"
+                                  placeholder="Describe yourself..."></textarea>&ndash;&gt;
+                        <p><button type="submit" class="get-quote__button" id="btn2">Submit</button></p>
+                        <p class="get-quote__text" >If you don't have an account, then just register. </p>
+                           &lt;!&ndash; <span class="list">&middot;</span>&ndash;&gt;
+                        &lt;!&ndash;<label class="menu__btn" for="menu__toggle">
+                            <span></span>
+                        </label>
+                            <li><a class="menu__item" href="#contact">Registration</a></li>&ndash;&gt;
+
+                    </form>
+
+                    <div class="contact">
+                        <h3 class="contact_title">Contact information</h3>
+                        <ul class="list_contact">
+                            <li><img src="templates/images/ico-location.png"><a class="icon_name_style">Elm St. 14/05 Lost City</a></li>
+                            <li><img src="templates/images/ico-phone.png"></span><a href="tel:035283318635" class="icon_name_style">03528 331 86 35</a></li>
+                            <li><img src="templates/images/ico-mail.png"></span><a href="mail:info@portfolio.com" class="icon_name_style">info@portfolio.com</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+    <div id="message-block" class="display-none">
+        <div id="message">
+            <p>Письмо отправлено</p>
+            <p><span id="text-subject"></span></p>
+            <p><span id="text-describe"></span></p>
+            <button id="close_btn">OK</button>
+        </div>
+    </div>
+</main>
+
+
+<footer class="footer">
+    <div class="footer__wrapper">
+        <span class="footer__span">&copy; Copyright 2021</span>
+        <div class="social-media__icons">
+            <a href="#"><img src="static/images/facebook.png"></a></li>
+            <a href="#"><img src="static/images/google+.png"></a></li>
+            <a href="#"><img src="static/images/twitter.png"></a></li>
+            <a href="#"><img src="static/images/linkedin.png"></a></li>
+        </div>
+    </div>
+</footer>
+<script src="static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/fonts/fonts.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
+    <style>
+        .p_padding {
+            margin-top: 20px;
+            color: #808000;
+
+        }
+    </style>
+</head>
+<body>
+<header class="menu"  id="menu">
+    <div class="wrapper">
+
+        <h1 class="logo">Retro<span>*</span></h1>
+        <nav class="header-nav">
+            <div class="hamburger-menu">
+                <input id="menu__toggle" type="checkbox">
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
+                <ul class="navigation menu__box" >
+                    <p class="menu__logo">Portfolio<span>*</span></p>
+                    <li><a class="active menu__item" href="/rate">Главная</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="#author">Авторизация</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="#register">Регистрация пользователя</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    </nav>
+    </div>
+</header>
+<main>
+    <!--<section class="slider-block" id='home'>
+        <div class="wrapper">
+
+            <img class="slider-block_arrows left-arrow "src="templates/images/left.png">
+            <div class="slider-content item-container" id='slides'>
+                <div class="slide slide_red item slide_active" id="slide-red">
+                    <img src="templates/images/vertical_iphone.png" class="slider-block-iphones shadow vert-iphone  slide_red" onclick="clickOnVertPhone()">
+                    <img src="templates/images/iPhone Vertical.png" class="slider-block-iphones shadow vert-iphone slide_red display-none" onclick="clickOnVertPhone()">
+                    <img src="templates/images/horizontal_iphone.png" class="slider-block-iphones shadow horiz-iphone  slide_red" onclick="clickOnHorizPhone()">
+                    <img src="templates/images/iPhone Horizontal.png" class="slider-block-iphones shadow horiz-iphone display-none slide_red" onclick="clickOnHorizPhone()">
+                </div>
+                <div class="slide item slide_blue" id="slide-blue">
+                    <img src="templates/images/slide-2.png">
+                </div>
+            </div>
+            <img class="slider-block_arrows right-arrow" src="templates/images/right.png">
+        </div>
+    </section>-->
+    <section class="services-block" id="author">
+        <div class ="wrapper">
+            <div>
+                <h2>Авторизация</h2>
+                <p>Введите логин и пароль</p>
+                <form action="#" method="post" th:action = "@{/accounts}" class="get-quote__form" id="formmmm" >
+                    <input th:field="*{adminEntity.loginad}" type="text"  class="form__element"   placeholder="Логин (Обязательно)" id="login" required>
+                    <input type="password"  class="form__element"  placeholder="Пароль (Обязательно)" id="password" required>
+
+                    <p><button type="submit" href="/accounts" class="get-quote__button" id="btn">Войти</button> <button type="reset" class="get-quote__button" id="rst">Очистить</button></p>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="register">
+        <div class ="wrapper">
+            <div>
+                <h2>Регистрация</h2>
+                <p class="p_padding"> </p>
+                <p>Заполните форму</p>
+                <form action="#" method="post" th:action = "@{/autorizationPost}" th:object = "${adminEntity}" class="get-quote__form" id="formm" >
+                    <input th:field="*{namead}" type="text"  class="form__element"   placeholder="Имя (Обязательно)" id="namereg" required>
+                    <input th:field="*{loginad}" type="text"  class="form__element"  placeholder="Логин (Обязательно)" id="loginreg" required>
+                    <input th:field="*{passwordad}" type="text"  class="form__element"   placeholder="Пароль (Обязательно)" id="passwordreg" required>
+                    <!--<input class="form__element" type="text" name="subject" placeholder="Suggestions" id="subject" required>-->
+                    <!-- action="#" method="post" th:action = "@{/rate}" th:object = "${suggestionsEntity}"-->
+                    <!--th:field="*{name}"
+                    th:field="*{email}"
+                    th:field="*{phone}"
+                    th:field = "*{rate}"-->
+                    <!--class="drop-down_list"-->
+                    <!-- name="name"
+                     name="email"
+                     name="tel"-->
+                    <p><button type="submit" class="get-quote__button" id="btnregister">Принять</button> <button type="reset" class="get-quote__button" id="rstregister">Очистить</button></p>
+                    <p></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    </div>
+    <div id="message-block" class="display-none">
+        <div id="message">
+            <p>Письмо отправлено</p>
+            <p><span id="text-subject"></span></p>
+            <p><span id="text-describe"></span></p>
+            <button id="close_btn">OK</button>
+        </div>
+    </div>
+</main>
+
+
+<footer class="footer">
+    <div class="footer__wrapper">
+        <span class="footer__span">&copy; Copyright 2021</span>
+        <div class="social-media__icons">
+            <a href="#"><img src="static/images/facebook.png"></a></li>
+            <a href="#"><img src="static/images/google+.png"></a></li>
+            <a href="#"><img src="static/images/twitter.png"></a></li>
+            <a href="#"><img src="static/images/linkedin.png"></a></li>
+        </div>
+    </div>
+</footer>
+<script src="templates/script.js"></script>
+</body>
+</html>

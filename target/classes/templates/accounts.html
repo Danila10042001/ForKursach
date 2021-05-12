@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="static/fonts/fonts.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
+    <style>
+        .to_basket {
+            margin: 0 auto;
+            color: #808000;
+
+        }
+        .formSearchAccounts {
+            box-sizing: border-box;
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+        }
+        .buttonSearchAccounts {
+            position: absolute;
+            top: 0;
+            right: 0px;
+            width: 42px;
+            height: 42px;
+            border: none;
+            background: #7BA7AB;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .inputSearchAccounts {
+            width: 100%;
+            height: 42px;
+            padding-left: 10px;
+            border: 2px solid #7BA7AB;
+            border-radius: 5px;
+            outline: none;
+            background: #F9F0DA;
+            color: #9E9C9C;
+        }
+        .header_text_align {
+            /*background: #2d303a;*/
+            color: #2d303a;
+            /*border-color: #F0E68C;
+            border-collapse: collapse;*/
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+           /* margin-top: 30px;*/
+        }
+        .table_accounts {
+            background: #2d303a;
+            color: #F0E68C;
+            border-color: #F0E68C;
+            border-collapse: collapse;
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 30px;
+        }
+        td, th {
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid #FFD700; /* Параметры рамки */
+        }
+
+    </style>
+</head>
+<body>
+<header class="menu"  id="menu">
+    <div class="wrapper">
+
+        <h1 class="logo">Retro<span>*</span></h1>
+        <nav class="header-nav">
+            <div class="hamburger-menu">
+                <input id="menu__toggle" type="checkbox">
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
+                <ul class="navigation menu__box" >
+                    <p class="menu__logo">Portfolio<span>*</span></p>
+                    <li><a class="active menu__item" href="/rate">Главная</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="#purchases">Транзакции</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="#rating">Оценки</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="#admins">Администрация</a></li>
+                    <span class="list">&middot;</span>
+                    <li><a class="menu__item" href="/suggestions">Добавить товар</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    </nav>
+    </div>
+</header>
+<main>
+    <!--<section class="slider-block" id='home'>
+        <div class="wrapper">
+
+            <img class="slider-block_arrows left-arrow "src="templates/images/left.png">
+            <div class="slider-content item-container" id='slides'>
+                <div class="slide slide_red item slide_active" id="slide-red">
+                    <img src="templates/images/vertical_iphone.png" class="slider-block-iphones shadow vert-iphone  slide_red" onclick="clickOnVertPhone()">
+                    <img src="templates/images/iPhone Vertical.png" class="slider-block-iphones shadow vert-iphone slide_red display-none" onclick="clickOnVertPhone()">
+                    <img src="templates/images/horizontal_iphone.png" class="slider-block-iphones shadow horiz-iphone  slide_red" onclick="clickOnHorizPhone()">
+                    <img src="templates/images/iPhone Horizontal.png" class="slider-block-iphones shadow horiz-iphone display-none slide_red" onclick="clickOnHorizPhone()">
+                </div>
+                <div class="slide item slide_blue" id="slide-blue">
+                    <img src="templates/images/slide-2.png">
+                </div>
+            </div>
+            <img class="slider-block_arrows right-arrow" src="templates/images/right.png">
+        </div>
+    </section>-->
+    <section class="services-block" id="purchases">
+        <div class ="wrapper">
+            <div>
+                <h2 class="header_text_align">Транзакции</h2>
+                <!--<p> </p>-->
+                <form action="#" th:action="@{/accounts_search}" method="post" class="formSearchAccounts">
+                    <input th:field="*{accountsEntity.namepr}" placeholder="Поиск по названию" type="search" class="inputSearchAccounts">
+                    <button type="submit" class="buttonSearchAccounts"></button>
+                </form>
+                <table class="table_accounts">
+                    <tr>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Производитель</th>
+                        <th>Имя покупателя</th>
+                        <th>Email</th>
+                        <th>Адрес</th>
+                        <th>Контактный номер</th>
+                    </tr>
+                    <tr th:each = "accountsEntity : ${accountList}">
+                        <td th:text = "${accountsEntity.namepr}"></td>
+                        <td th:text = "${accountsEntity.costpr}"></td>
+                        <td th:text = "${accountsEntity.producer}"></td>
+                        <td th:text = "${accountsEntity.namecon}"></td>
+                        <td th:text = "${accountsEntity.emailcon}"></td>
+                        <td th:text = "${accountsEntity.addresscon}"></td>
+                        <td th:text = "${accountsEntity.phonecon}"></td>
+                    </tr>
+                </table>
+                <!--<div class="services-container">
+                    <div class="grid-item">
+                        <img src="templates/images/pen.png">
+                        <h3>Custom Design</h3>
+                        <p>Mind-blowing design with tons of nice little things</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="templates/images/bulb.png">
+                        <h3>Inovative Ideas</h3>
+                        <p>We will try to find what you need for you</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="templates/images/heart.png">
+                        <h3>Love Is The Answer</h3>
+                        <p>Heart-to-heart communication with consumers </p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="templates/images/phone.png">
+                        <h3>Responsive Layout</h3>
+                        <p>Suitable for any existing device </p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="templates/images/bubble.png">
+                        <h3>24 / 7 Support</h3>
+                        <p>Constant communication with the customer </p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="templates/images/star.png">
+                        <h3>Feel Like A Star</h3>
+                        <p>The newest and best for your customers </p>
+                    </div>
+                </div>
+            </div>-->
+            </div>
+        </div>
+    </section>
+    <section class="about-us" id="rating">
+        <div class="wrapper">
+            <div class="about-us_container">
+                <h2 class="header_text_align">Рейтинги</h2>
+               <!-- <p class="about-us__text">Creative team and interesting contests </p>-->
+                <table class="table_accounts">
+                    <tr>
+                        <th>Имя</th>
+                        <th>Email</th>
+                        <th>Контактный номер</th>
+                        <th>Оценка</th>
+                    </tr>
+                    <tr th:each = "suggestionsEntity : ${suggestionList}">
+                        <td th:text = "${suggestionsEntity.name}"></td>
+                        <td th:text = "${suggestionsEntity.email}"></td>
+                        <td th:text = "${suggestionsEntity.phone}"></td>
+                        <td th:text = "${suggestionsEntity.rate}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    </div>
+    <section class="about-us" id="admins">
+        <div class ="wrapper">
+            <div>
+                <h2 class="header_text_align">Наши работники</h2>
+                <!--<p> </p>-->
+                <table class="table_accounts">
+                    <tr>
+                        <th>Имя</th>
+                        <th>Логин</th>
+                        <th>Пароль</th>
+                    </tr>
+                    <tr th:each = "adminEntity : ${adminList}">
+                        <td th:text = "${adminEntity.namead}"></td>
+                        <td th:text = "${adminEntity.loginad}"></td>
+                        <td th:text = "${adminEntity.passwordad}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+   <!-- <section class="about-us" id="about">
+        <div class="wrapper">
+            <div class="about-us_container">
+                <h2>About Us</h2>
+                <p class="about-us__text">Creative team and interesting contests </p>
+                <div class="layot-3-column">
+                    <div class="about-us__grid-container">
+                        <div class="person">
+                            <img src="templates/images/vadim.jpg" alt="Vadim Visotsky">
+                            <h3 class="about-us__text_name">Vadim Visotsky</h3>
+                            <p class="about-us__description" style="letter-spacing: -0.15px;">"Cogito ergo sum"</p>
+
+                        </div>
+                        <div class="social-media__icons">
+                            <a href="#"><img src="templates/images/facebook.png"></a></li>
+                            <a href="#"><img src="templates/images/google+.png"></a></li>
+                            <a href="#"><img src="templates/images/twitter.png"></a></li>
+                            <a href="#"><img src="templates/images/linkedin.png"></a></li>
+                        </div>
+                        <div class="person">
+                            <img src="templates/images/danik.jpg" alt="Daniil Benko">
+                            <h3 class="about-us__text_name">Danil Benko</h3>
+                            <p class="about-us__description" style="letter-spacing: 0.12px;">Memento mori</p>
+                        </div>
+                        <div class="social-media__icons">
+                            <a href="#"><img src="templates/images/facebook.png"></a></li>
+                            <a href="#"><img src="templates/images/google+.png"></a></li>
+                            <a href="#"><img src="templates/images/twitter.png"></a></li>
+                            <a href="#"><img src="templates/images/linkedin.png"></a></li>
+                        </div>
+                        <div class="person">
+                            <img src="templates/images/george.jpg" alt="Gorelik George">
+                            <h3 class="about-us__text_name" style="letter-spacing: 0.1px">Gorelik George</h3>
+                            <p class="about-us__description" style="letter-spacing: 0.07px;">In vino veritas</p>
+
+                        </div>
+                        <div class="social-media__icons">
+                            <a href="#"><img src="templates/images/facebook.png"></a></li>
+                            <a href="#"><img src="templates/images/google+.png"></a></li>
+                            <a href="#"><img src="templates/images/twitter.png"></a></li>
+                            <a href="#"><img src="templates/images/linkedin.png"></a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <div id="message-block" class="display-none">
+        <div id="message">
+            <p>Письмо отправлено</p>
+            <p><span id="text-subject"></span></p>
+            <p><span id="text-describe"></span></p>
+            <button id="close_btn">OK</button>
+        </div>
+    </div>
+</main>
+
+
+<footer class="footer">
+    <div class="footer__wrapper">
+        <span class="footer__span">&copy; Copyright 2021</span>
+        <div class="social-media__icons">
+            <a href="#"><img src="static/images/facebook.png"></a></li>
+            <a href="#"><img src="static/images/google+.png"></a></li>
+            <a href="#"><img src="static/images/twitter.png"></a></li>
+            <a href="#"><img src="static/images/linkedin.png"></a></li>
+        </div>
+    </div>
+</footer>
+<script src="templates/script.js"></script>
+</body>
+</html>
